@@ -18,6 +18,6 @@ Vagrant.configure("2") do |config|
         subconfig.vm.network :public_network, bridge: $VirtualSwitchName
         config.vm.synced_folder ".", "/vagrant", disabled: true
         subconfig.vm.provision "shell", path: "install.sh"
-        subconfig.vm.provision "shell", path: "gitk8s.sh"
+        subconfig.vm.provision "shell", path: "gitk8s.sh", privileged: false
     end
 end
